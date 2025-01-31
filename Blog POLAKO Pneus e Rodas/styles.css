@@ -10,25 +10,32 @@ body {
     line-height: 1.6;
     background-color: #000000;
     color: #ffffff;
-    min-height: 100vh; /* Garante que o corpo da página tenha pelo menos a altura da viewport */
-    position: relative; /* Permite posicionamento relativo para garantir que o footer fique no final da viewport */
+    min-height: 100vh;
+    position: relative; 
 }
 
 header {
     background-color: #FF6100;
     padding: 10px 0;
     display: flex;
-    justify-content: space-between; /* Alinha os itens no header ao longo do eixo principal (horizontal) */
-    align-items: center; /* Centraliza os itens verticalmente no header */
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+header {
+    background-color: #000000;
+    padding: 20px 0;
+    text-align: center; 
 }
 
 .logo-text h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     margin: 0;
-    color: #000000; /* Cor do texto preto */
+    color: #ffffff; 
 }
 
+/* Icones facebook, instagram e whats */
 .social-icons {
     margin-top: 20px;
 }
@@ -38,38 +45,39 @@ header {
 }
 
 .social-icons img {
-    width: 40px; /* Ajuste o tamanho dos ícones conforme necessário */
+    width: 40px; 
     height: auto;
 }
 
-header {
-    background-color: #000000;
-    padding: 20px 0; /* Aumenta o padding vertical para dar mais espaço */
-    text-align: center; /* Centraliza o conteúdo horizontalmente */
-}
 
+/* Navbar */
 nav ul {
     display: flex;
     list-style-type: none;
-    justify-content: space-between; /* Distribui igualmente o espaço entre os itens */
-    margin-top: 10px; /* Espaçamento superior */
-    margin-bottom: 10px; /* Espaçamento inferior */
+    gap: 20px; 
+    margin: 0;
 }
-
 
 nav ul li a {
     color: #FF6100;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem; /* Ajuste o tamanho da fonte conforme necessário */
-    padding: 10px 15px; /* Espaçamento interno dos itens */
-    transition: color 0.3s ease; /* Transição suave para a cor do texto */
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #ffffff; /* Cor do texto ao passar o mouse */
+    color: #ffffff;
 }
 
+/* Responsividade do Navbar */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 .container {
     max-width: 960px;
     margin: 20px auto;
@@ -89,29 +97,29 @@ section h2 {
     background-color: #FF6100;
     color: #000000;
     text-align: center;
-    padding: 50px 0; /* Reduz o espaçamento interno do banner */
-    transition: padding 0.3s ease; /* Transição suave para o padding */
+    padding: 50px 0; 
+    transition: padding 0.3s ease;
 }
 
 #banner img {
-    width: 200px; /* Reduz a largura da imagem */
-    height: auto; /* Mantém a altura proporcionalmente */
+    width: 200px; 
+    height: auto;
 }
 
 #banner .social-icons img {
-    width: 40px; /* Ajuste o tamanho dos ícones conforme necessário */
+    width: 40px;
     height: auto;
 }
 
 #banner:hover {
-    padding: 40px 0; /* Novo padding ao passar o mouse */
+    padding: 40px 0;
 }
 
 #banner h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 3rem;
     margin-bottom: 20px;
-    letter-spacing: 10px; /* Ajuste o valor conforme necessário */
+    letter-spacing: 10px; 
 }
 
 #banner p {
@@ -122,31 +130,74 @@ section h2 {
     margin: 0 auto;
 }
 
+/* Seção 1 */
+#historia img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+    margin: 30px auto; 
+    margin-top: 30px; 
+    max-height: 300px; 
+}
+
+/* Seção 2 - Estilos do Carrossel */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;  
+}
+
+.carousel-item {
+    display: none;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    font-size: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-prev {
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.carousel-next {
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+  
+
 footer {
     background-color: #000000;
     color: #ffffff;
     text-align: center;
-    padding: 10px 0;
-    position: fixed; /* Alterado para fixed para manter o footer fixo na parte inferior da janela */
-    bottom: 0; /* Posiciona o footer no rodapé da janela */
+    padding: 20px 0;
     width: 100%;
-}
-
-
-#comunicacao img {
-    max-width: 800%; /* Aumenta a largura da imagem, garantindo que não ultrapasse o contêiner */
-    height: auto; /* Ajusta a altura automaticamente, mantendo a proporção */
-    display: block; /* Remove espaço extra abaixo da imagem */
-    margin: 10px auto; /* Espaçamento superior e inferior para separar do texto, e 'auto' para centralizar horizontalmente */
-    max-height: 800px; /* Altura máxima da imagem */
-}
-
-#historia img {
-    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do seu contêiner */
-    height: auto; /* Ajusta a altura automaticamente, mantendo a proporção */
-    display: block; /* Remove espaço extra abaixo da imagem */
-    margin: 30px auto; /* Espaçamento superior e inferior para separar do texto, e 'auto' para centralizar horizontalmente */
-    margin-top: 30px; /* Espaçamento superior para separar do texto */
-    max-height: 300px; /* Altura máxima da imagem */
+    position: relative;
+    bottom: 0;
 }
 
